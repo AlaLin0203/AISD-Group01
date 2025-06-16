@@ -1,0 +1,221 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MovieTicketSystem
+build_property.RootNamespace = MovieTicketSystem
+build_property.ProjectDir = D:\VNUIS\Advanced Information Systems Development\movie-ticket-system-main\movie-ticket-system-main\MovieTicketSystem\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\VNUIS\Advanced Information Systems Development\movie-ticket-system-main\movie-ticket-system-main\MovieTicketSystem
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Bookings/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxCb29raW5nc1xDb25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Bookings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxCb29raW5nc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/BookingDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQm9va2luZ0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/BookingManagement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQm9va2luZ01hbmFnZW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/DeleteUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGVsZXRlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/RevenueAnalytics.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmV2ZW51ZUFuYWx5dGljcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/MovieDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/MoviesList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Movies/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Movies/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Movies/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Movies/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Movies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW92aWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Screens/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NyZWVuc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Screens/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NyZWVuc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Screens/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NyZWVuc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Screens/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NyZWVuc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Screens/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NyZWVuc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Seats/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Seats/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Seats/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Seats/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Seats/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/ShowtimesList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Showtimes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Showtimes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Showtimes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Showtimes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Showtimes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvd3RpbWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VNUIS/Advanced Information Systems Development/movie-ticket-system-main/movie-ticket-system-main/MovieTicketSystem/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-ivp9u68vfv

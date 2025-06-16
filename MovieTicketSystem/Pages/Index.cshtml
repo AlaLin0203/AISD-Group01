@@ -1,0 +1,177 @@
+﻿@page
+@model MovieTicketSystem.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="relative bg-gradient-to-r from-blue-900 to-teal-500 text-white py-16 mb-10">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">                <h1 class="text-4xl md:text-5xl font-bold mb-4">Movie Tickets GenZmephim</h1>
+                <p class="text-xl mb-3">About GenZmephim</p>
+                <p class="mb-6">At GenZmephim, we bring the cinema experience closer to you with our fast, simple, and secure online ticket booking platform. Whether you're into action, romance, horror, or comedy, you can browse showtimes, reserve your favorite seats, and grab the hottest tickets, all in just a few clicks.</p>
+                <p class="mb-6">We're more than just a ticket site, we’re a space for movie lovers, made by Gen Z, for Gen Z.</p>
+                <p class="mb-6">Lights. Camera. Let’s go!</p>
+                <div class="flex space-x-4">
+                    <a asp-page="/MoviesList" class="bg-primary hover:bg-opacity-90 text-white font-medium py-2 px-6 rounded-md inline-flex items-center transition-colors">
+                        <i class="bi bi-film mr-2"></i>Browse Movies
+                    </a>
+                    <a asp-page="/ShowtimesList" class="border border-white hover:bg-white hover:text-gray-900 text-white font-medium py-2 px-6 rounded-md inline-flex items-center transition-colors">
+                        <i class="bi bi-calendar-event mr-2"></i>View Showtimes
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 hidden md:block">
+                <img src="https://i.pinimg.com/736x/63/b7/11/63b711e9da3473ebcf19c93a564b4a93.jpg" class="rounded-lg shadow-lg w-full" alt="Movie Banner">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto px-4">
+    <section id="now-showing" class="mb-16">        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold flex items-center"><i class="bi bi-film mr-2"></i>Now Showing</h2>
+            <a asp-page="/MoviesList" class="inline-flex items-center text-primary border border-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md transition-colors">
+                View All <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach (var movie in Model.Movies)
+            {                <div class="h-full">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                        <div class="overflow-hidden">
+                            @if (string.IsNullOrEmpty(movie.ImageBanner))
+                            {
+                                <img src="https://via.placeholder.com/350x500?text=@Uri.EscapeDataString(movie.Title)" 
+                                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" alt="@movie.Title">
+                            }
+                            else
+                            {
+                                <img src="@movie.ImageBanner" 
+                                     class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" alt="@movie.Title">
+                            }
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <h5 class="text-xl font-bold">@movie.Title</h5>
+                                <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">@movie.Rating</span>
+                            </div>
+                            <p class="text-gray-500 text-sm mb-2">Thời lượng: @(movie.Duration) phút</p>
+                            <p class="text-gray-700 mb-4">@(movie.Description?.Length > 100 ? movie.Description.Substring(0, 100) + "..." : movie.Description)</p>
+                            <div class="space-y-2 mt-auto">
+                                <a asp-page="/Movies/Details" asp-route-id="@movie.MovieId" 
+                                   class="block w-full bg-primary text-white text-center py-2 rounded-md hover:bg-opacity-90 transition-colors">
+                                    <i class="bi bi-ticket-perforated mr-2"></i>Đặt vé
+                                </a>
+                                <a asp-page="/Movies/Details" asp-route-id="@movie.MovieId" 
+                                   class="block w-full border border-gray-300 text-gray-700 text-center py-2 rounded-md hover:bg-gray-50 transition-colors">
+                                    <i class="bi bi-info-circle mr-2"></i>Chi tiết
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+      <section id="coming-soon" class="mb-16">        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold flex items-center"><i class="bi bi-calendar-event mr-2"></i>Coming Soon</h2>
+            <a href="#" class="inline-flex items-center text-primary border border-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md transition-colors">
+                View All <i class="bi bi-arrow-right ml-1"></i>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            @foreach (var movie in Model.ComingSoonMovies)
+            {                <div class="h-full">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                        <div class="relative">
+                            @if (string.IsNullOrEmpty(movie.ImageBanner))
+                            {
+                                <img src="https://via.placeholder.com/300x450?text=@Uri.EscapeDataString(movie.Title)" 
+                                     class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500" alt="@movie.Title">
+                            }
+                            else
+                            {
+                                <img src="@movie.ImageBanner" 
+                                     class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500" alt="@movie.Title">
+                            }
+                            <div class="absolute top-0 right-0 m-2">                                <span class="bg-red-600 text-white text-xs px-3 py-1 rounded-full">Coming Soon</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h5 class="text-lg font-bold mb-2">@movie.Title</h5>
+                            <p class="text-gray-500 text-sm mb-2 flex items-center">
+                                <i class="bi bi-calendar mr-2"></i>Release Date: @movie.ReleaseDate?.ToString("MM/dd/yyyy")
+                            </p>
+                            <p class="text-gray-700 mb-4 text-sm">@(movie.Description?.Length > 80 ? movie.Description.Substring(0, 80) + "..." : movie.Description)</p>
+                            <div class="mt-auto">
+                                <a asp-page="/Movies/Details" asp-route-id="@movie.MovieId" 
+                                   class="block w-full border border-primary text-primary hover:bg-primary hover:text-white text-center py-2 rounded-md transition-colors">
+                                    <i class="bi bi-info-circle mr-2"></i>Chi tiết
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+      <section class="mb-16 py-12 bg-gray-50 rounded-xl">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">                    <h2 class="text-3xl font-bold mb-2">Why Choose Us?</h2>
+                    <p class="text-xl text-gray-600 mb-6">Great movie experience with attractive offers</p>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4">
+                                <i class="bi bi-check-circle-fill text-primary text-2xl"></i>
+                            </div>
+                            <div>                                <h5 class="text-lg font-semibold mb-1">Easy Booking</h5>
+                                <p class="text-gray-600">Book tickets online in minutes, no queuing needed</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4">
+                                <i class="bi bi-check-circle-fill text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold mb-1">Latest Movies</h5>
+                                <p class="text-gray-600">Always updated with the newest and hottest movies</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4">
+                                <i class="bi bi-check-circle-fill text-primary text-2xl"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold mb-1">Great Promotions</h5>
+                                <p class="text-gray-600">Special discounts for regular members</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">                    <div class="bg-white rounded-xl shadow-xl p-6">
+                        <h3 class="text-2xl font-bold mb-6 text-center">Quick Stats</h3>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <h3 class="text-3xl font-bold text-primary mb-2">@Model.MovieCount</h3>
+                                <p class="text-gray-500">Movies</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-green-500 mb-2">@Model.ScreenCount</h3>
+                                <p class="text-gray-500">Screens</p>
+                            </div>
+                            <div>
+                                <h3 class="text-3xl font-bold text-blue-400 mb-2">@Model.ShowtimeCount</h3>
+                                <p class="text-gray-500">Showtimes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,94 @@
+@page "{id:int}"
+@model MovieTicketSystem.Pages.Account.Bookings.ConfirmationModel
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<div class="container mx-auto px-4 py-8">
+    <div class="flex justify-center">
+        <div class="w-full max-w-3xl">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-8 text-center">
+                    <div class="text-6xl text-green-500 mb-6">
+                        <svg class="w-24 h-24 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-6">Booking Successful!</h2>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-yellow-700">
+                                    Please complete payment within <span class="font-bold">15 minutes</span> to confirm your booking
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg mb-6">
+                        <div class="p-5">
+                            <h5 class="font-bold text-lg mb-4 text-center">Booking Information</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="text-left">
+                                    <p class="mb-3">
+                                        <span class="font-medium text-gray-700 block mb-1">Movie:</span>
+                                        @Model.Booking.Showtime?.Movie?.Title
+                                    </p>
+                                    <p class="mb-3">
+                                        <span class="font-medium text-gray-700 block mb-1">Showtime:</span>
+                                        @Model.Booking.Showtime?.StartTime.ToString("MM/dd/yyyy HH:mm")
+                                    </p>
+                                    <p class="mb-0">
+                                        <span class="font-medium text-gray-700 block mb-1">Screen:</span>
+                                        @Model.Booking.Showtime?.Screen?.Name
+                                    </p>
+                                </div>
+                                <div class="text-left">
+                                    <p class="mb-3">
+                                        <span class="font-medium text-gray-700 block mb-1">Seats:</span>
+                                        @string.Join(", ", Model.Booking.Tickets?.Select(t => $"{t.Seat?.Row}{t.Seat?.Number}") ?? Array.Empty<string>())
+                                    </p>
+                                    <p class="mb-3">
+                                        <span class="font-medium text-gray-700 block mb-1">Total amount:</span>
+                                        <span class="text-blue-600 font-medium">@(Model.Booking.TotalPrice.ToString("#,###")) VNĐ</span>
+                                    </p>
+                                    <p class="mb-0">
+                                        <span class="font-medium text-gray-700 block mb-1">Booking ID:</span>
+                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-500 text-white">
+                                            @Model.Booking.BookingId
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="post" class="mb-5">
+                        <input type="hidden" asp-for="Booking.BookingId" />
+                        <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                            Pay Now
+                        </button>
+                    </form>
+
+                    <div class="text-gray-500">
+                        <a asp-page="./Index" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            View Booking History
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

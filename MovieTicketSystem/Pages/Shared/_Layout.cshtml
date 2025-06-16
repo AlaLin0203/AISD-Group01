@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>@ViewData["Title"] - Movie Ticket System</title>    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0d6efd',
+                        secondary: '#6c757d',
+                        success: '#198754',
+                        danger: '#dc3545',
+                        warning: '#ffc107',
+                        info: '#0dcaf0',
+                        light: '#f8f9fa',
+                        dark: '#212529'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif']
+                    },
+                    boxShadow: {
+                        sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                        DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Any global styles that need to be included */
+        [x-cloak] { display: none !important; }
+    </style>    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MovieTicketSystem.styles.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+      <!-- Image error handling -->
+    <script>
+        function handleImageError(img) {
+            console.error("Image failed to load:", img.src);
+            img.onerror = null; // Prevent endless loop if fallback also fails
+            var movieTitle = img.alt || "Movie";
+            img.src = "https://via.placeholder.com/400x600?text=" + encodeURIComponent(movieTitle);
+        }
+        
+        window.addEventListener('DOMContentLoaded', function() {
+            // Find all movie poster images and add error handling
+            document.querySelectorAll('img[src^="/images/movies/"]').forEach(function(img) {
+                img.onerror = function() { handleImageError(this); };
+            });
+              // Kiểm tra jQuery một cách lặng lẽ (không hiển thị thông báo lỗi)
+            setTimeout(function() {
+                if (window.jQuery) {
+                    console.log('jQuery is available');
+                } else {
+                    console.log('jQuery not available, but we can continue without it');
+                    // Không hiển thị thông báo lỗi nữa
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body>    
+    @{
+        bool isAdminPage = Context.Request.Path.Value != null && Context.Request.Path.Value.StartsWith("/Admin");
+    }
+
+    @if (!isAdminPage)
+    {
+    <header class="sticky top-0 z-50">
+        <nav class="bg-gray-900 shadow-md py-2">
+            <div class="container mx-auto px-2 sm:px-4">
+                <div class="flex flex-wrap justify-between items-center">
+                    <a class="flex items-center" asp-area="" asp-page="/Index">
+                        <i class="bi bi-film mr-2 text-primary text-2xl"></i>
+                        <span class="font-bold text-white">GenZmephim</span>
+                    </a>
+                    <div class="flex items-center md:order-2">
+                        <div class="hidden md:block">
+                            <partial name="_LoginPartial" model="new { mobile = false }" />
+                        </div>
+                        <button class="ml-2 md:hidden text-white p-2" id="mobile-menu-button" aria-label="Toggle menu">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="hidden md:flex flex-grow justify-center md:order-1">
+                        <ul class="flex flex-wrap space-x-1 lg:space-x-4">
+                            <li>
+                                <a class="text-gray-200 hover:text-white px-2 lg:px-3 py-2 rounded-md transition duration-300 flex items-center" asp-area="" asp-page="/Index">
+                                    <i class="bi bi-house-door mr-2"></i> Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-gray-200 hover:text-white px-2 lg:px-3 py-2 rounded-md transition duration-300 flex items-center" asp-area="" asp-page="/MoviesList">
+                                    <i class="bi bi-film mr-2"></i> Movies
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-gray-200 hover:text-white px-2 lg:px-3 py-2 rounded-md transition duration-300 flex items-center" asp-area="" asp-page="/ShowtimesList">
+                                    <i class="bi bi-calendar-event mr-2"></i> Showtimes
+                                </a>
+                            </li>
+                            @if (User.IsInRole("Administrator"))
+                            {
+                                <li>
+                                    <a class="text-gray-200 hover:text-white px-2 lg:px-3 py-2 rounded-md bg-blue-600 transition duration-300 flex items-center" asp-area="" asp-page="/Admin/Dashboard">
+                                        <i class="bi bi-speedometer2 mr-2"></i> Dashboard
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div class="md:hidden w-full transition-all duration-300 max-h-0 overflow-hidden" id="mobile-menu">
+                    <ul class="pt-4 pb-3 space-y-1">
+                        <li>
+                            <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md transition duration-300" asp-area="" asp-page="/Index">
+                                <i class="bi bi-house-door mr-2"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md transition duration-300" asp-area="" asp-page="/MoviesList">
+                                <i class="bi bi-film mr-2"></i> Movies
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md transition duration-300" asp-area="" asp-page="/ShowtimesList">
+                                <i class="bi bi-calendar-event mr-2"></i> Showtimes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md transition duration-300" href="#">
+                                <i class="bi bi-ticket-perforated mr-2"></i> Promotions
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md transition duration-300" href="#">
+                                <i class="bi bi-info-circle mr-2"></i> About Us
+                            </a>
+                        </li>
+                        @if (User.IsInRole("Administrator"))
+                        {
+                            <li>
+                                <a class="text-gray-200 hover:text-white block px-3 py-2 rounded-md bg-blue-600 transition duration-300" asp-area="" asp-page="/Admin/Dashboard">
+                                    <i class="bi bi-speedometer2 mr-2"></i> Dashboard
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    <div class="pt-2 pb-4 border-t border-gray-700">
+                        <partial name="_LoginPartial" model="new { mobile = true }" />
+                    </div>
+                </div>
+            </div>
+        </nav>    </header>
+    }
+
+    <div class="container mx-auto px-4 min-h-screen">
+        <main role="main" class="pb-8">
+            @RenderBody()
+        </main>
+    </div>    
+    
+    @if (!isAdminPage)
+    {
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-4">                    <div class="flex items-center mb-3">
+                        <i class="bi bi-film mr-2 text-primary text-2xl"></i>
+                        <span class="text-2xl font-bold">Movie Tickets</span>
+                    </div>
+                    <p class="text-gray-300">Premier online movie ticket booking system, bringing you the best cinematic experiences.</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i class="bi bi-facebook text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i class="bi bi-instagram text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i class="bi bi-twitter-x text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-primary transition-colors"><i class="bi bi-youtube text-xl"></i></a>
+                    </div>
+                </div>                <div class="md:col-span-2">                    <h5 class="font-bold text-lg mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a asp-page="/Index" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a asp-page="/MoviesList" class="text-gray-300 hover:text-white transition-colors">Movies</a></li>
+                        <li><a asp-page="/ShowtimesList" class="text-gray-300 hover:text-white transition-colors">Showtimes</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Promotions</a></li>
+                        <li><a asp-page="/Privacy" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>                <div class="md:col-span-3">
+                    <h5 class="font-bold text-lg mb-4">Theaters</h5>                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">New York</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Los Angeles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Chicago</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Miami</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Houston</a></li>
+                    </ul>
+                </div>                <div class="md:col-span-3">
+                    <h5 class="font-bold text-lg mb-4">Contact Us</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-start"><i class="bi bi-geo-alt mr-2 mt-1"></i> 123 Cinema Street, District 1, HCMC</li>
+                        <li class="flex items-center"><i class="bi bi-telephone mr-2"></i> 1900 1234 567</li>
+                        <li class="flex items-center"><i class="bi bi-envelope mr-2"></i> contact@movietickets.com</li>
+                    </ul>                    <div class="mt-4">
+                        <a href="#" class="inline-block px-4 py-2 border border-white rounded-md hover:bg-white hover:text-gray-900 transition-colors">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-6">
+            <div class="text-center">                <p class="text-gray-400">&copy; 2025 MovieTicket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    }
+    
+    <script src="~/lib/jquery/dist/jquery.min.js" onerror="console.log('jQuery not loaded but it is optional')"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/image-handler.js" asp-append-version="true"></script>
+    <script src="~/js/movie-search.js" asp-append-version="true"></script>
+      <script>
+        // Mobile menu toggle with smooth animation        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're on admin page
+            const isAdminPage = window.location.pathname.startsWith('/Admin');
+            
+            if (!isAdminPage) {
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', function() {
+                        if (mobileMenu.classList.contains('max-h-0')) {
+                            // Open menu
+                            mobileMenu.classList.remove('max-h-0');
+                            mobileMenu.classList.add('max-h-screen');
+                        } else {
+                            // Close menu
+                            mobileMenu.classList.remove('max-h-screen');
+                            mobileMenu.classList.add('max-h-0');
+                        }
+                    });
+                }
+            }            // User dropdown toggle for desktop and mobile - Using both hover and click behavior
+            const userMenuButtons = document.querySelectorAll('[id^="user-menu-button"]');
+            
+            userMenuButtons.forEach(userMenuButton => {
+                const userMenuDropdown = userMenuButton.nextElementSibling;
+                
+                if (userMenuButton && userMenuDropdown) {
+                    // For mobile - use click behavior
+                    if (window.innerWidth < 768) {
+                        userMenuButton.addEventListener('click', function(event) {
+                            event.stopPropagation();
+                            userMenuDropdown.classList.toggle('hidden');
+                        });
+                    }
+                    
+                    // Make button more obviously clickable with cursor style
+                    userMenuButton.style.cursor = 'pointer';
+                }
+            });
+            
+            // Close all mobile dropdowns when clicking outside
+            document.addEventListener('click', function(event) {
+                // Only apply this to mobile view
+                if (window.innerWidth < 768) {
+                    const dropdowns = document.querySelectorAll('[role="menu"]');
+                    const userMenuButtons = document.querySelectorAll('[id^="user-menu-button"]');
+                    
+                    let isClickInsideDropdown = false;
+                    let isClickOnButton = false;
+                    
+                    dropdowns.forEach(dropdown => {
+                        if (dropdown.contains(event.target)) {
+                            isClickInsideDropdown = true;
+                        }
+                    });
+                    
+                    userMenuButtons.forEach(button => {
+                        if (button.contains(event.target)) {
+                            isClickOnButton = true;
+                        }
+                    });
+                    
+                    if (!isClickInsideDropdown && !isClickOnButton) {
+                        dropdowns.forEach(dropdown => {
+                            dropdown.classList.add('hidden');
+                        });
+                    }
+                }
+            });
+              
+            // Fix for iOS touch events on nav items
+            const navItems = document.querySelectorAll('nav a');
+            navItems.forEach(item => {
+                item.addEventListener('touchstart', function() {
+                    // This helps with the iOS hover states
+                }, { passive: true });
+            });
+              // Adjust header on scroll
+            let lastScrollTop = 0;
+            const header = document.querySelector('header');
+            
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        // Scrolling down & past threshold
+                        header.classList.add('shadow-lg');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('shadow-lg');
+                    }
+                    
+                    lastScrollTop = scrollTop;
+                }, { passive: true });
+            }
+            
+            // Image handlers are now managed in image-handler.js
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
